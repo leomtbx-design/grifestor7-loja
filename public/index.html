@@ -176,6 +176,7 @@
     <li><a href="#">Novidades</a></li>
     <li><a href="#camisetas">Roupas</a></li>
     <li><a href="#chinelos">Acessórios</a></li>
+    <li><a href="#cadeiras">Escritório</a></li>
     <li><a href="#">Coleções</a></li>
   </ul>
   <div class="nav-icons">
@@ -267,6 +268,35 @@
   </div>
 </section>
 
+<!-- CADEIRAS -->
+<section class="section" id="cadeiras" style="padding-top:0;">
+  <div class="section-header">
+    <h2 class="section-title">Linha <em>Escritório</em></h2>
+    <a href="#" class="see-all">Ver todas →</a>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="product-img-wrap">
+        <span class="product-badge">Novo</span>
+        <img id="cadeira-img" src="https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk1_1.jpg" alt="Cadeira Office Zinnia Aloe">
+        <button class="add-btn" onclick="openCheckout('Cadeira Office Zinnia Aloe', document.getElementById('cadeira-img').src, 279.99, 'Preto', null)">Comprar agora</button>
+      </div>
+      <div class="product-info">
+        <p class="product-cat">Cadeiras de Escritório</p>
+        <p class="product-name">Cadeira Office Zinnia Aloe</p>
+        <p class="product-price"><span class="old">R$ 319,99</span>R$ 279,99</p>
+        <p style="font-size:0.78rem; color:var(--muted); margin-top:8px; line-height:1.7;">Ergonômica · Encosto em malha respirável · Suporta até 115kg · Altura ajustável 112–122cm · Pistão classe 4 · Garantia 12 meses</p>
+        <div class="color-dots">
+          <div class="color-dot cadeira-foto-dot active" data-img="https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk1_1.jpg" style="background-image:url(https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk1_1.jpg); background-size:cover; background-position:center;" title="Foto 1" onclick="changeCadeiraFoto(this)"></div>
+          <div class="color-dot cadeira-foto-dot" data-img="https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk3_1.jpg" style="background-image:url(https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk3_1.jpg); background-size:cover; background-position:center;" title="Foto 2" onclick="changeCadeiraFoto(this)"></div>
+          <div class="color-dot cadeira-foto-dot" data-img="https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk4_1.jpg" style="background-image:url(https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk4_1.jpg); background-size:cover; background-position:center;" title="Foto 3" onclick="changeCadeiraFoto(this)"></div>
+          <div class="color-dot cadeira-foto-dot" data-img="https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk5_1.jpg" style="background-image:url(https://media.pichau.com.br/media/catalog/product/cache/2f958555330323e505eba7ce930bdf27/z/n/zno-aloe-bk5_1.jpg); background-size:cover; background-position:center;" title="Foto 4" onclick="changeCadeiraFoto(this)"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FEATURES -->
 <div class="features">
   <div class="feature">
@@ -305,7 +335,7 @@
     </div>
     <div class="footer-col">
       <h4>Loja</h4>
-      <ul><li><a href="#">Novidades</a></li><li><a href="#camisetas">Camisetas</a></li><li><a href="#chinelos">Chinelos</a></li><li><a href="#">Promoções</a></li></ul>
+      <ul><li><a href="#">Novidades</a></li><li><a href="#camisetas">Camisetas</a></li><li><a href="#chinelos">Chinelos</a></li><li><a href="#cadeiras">Cadeiras</a></li><li><a href="#">Promoções</a></li></ul>
     </div>
     <div class="footer-col">
       <h4>Atendimento</h4>
@@ -434,6 +464,12 @@ function changeChineloColor(dot) {
   document.querySelectorAll('.chinelo-color-dot').forEach(d => d.classList.remove('active'));
   dot.classList.add('active');
   document.getElementById('chinelo-img').src = dot.dataset.img;
+}
+
+function changeCadeiraFoto(dot) {
+  document.querySelectorAll('.cadeira-foto-dot').forEach(d => d.classList.remove('active'));
+  dot.classList.add('active');
+  document.getElementById('cadeira-img').src = dot.dataset.img;
 }
 
 function selectSize(btn, group) {
