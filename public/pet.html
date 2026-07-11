@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rolo Removedor de Pelos Mágico — Adeus Pelos no Sofá</title>
+<meta name="description" content="Remova os pelos do seu pet do sofá, roupa e carro em segundos. Reutilizável, sem refil. Oferta de lançamento com frete para todo o Brasil.">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --bg:#fdf9f3; --surface:#ffffff; --ink:#33302a; --accent:#e8853b; --accent-dark:#c96a24; --green:#3e9c5c; --muted:#8a8478; --line:rgba(51,48,42,0.12); --danger:#d9534f; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Nunito', sans-serif; font-size: 16px; line-height: 1.6; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 18px; }
+  .topbar { text-align: center; padding: 11px; background: var(--accent); color: #fff; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.04em; }
+
+  .hero { text-align: center; padding: 36px 0 24px; }
+  h1 { font-size: clamp(1.7rem, 5.5vw, 2.5rem); font-weight: 900; line-height: 1.18; margin-bottom: 12px; }
+  h1 span { color: var(--accent); }
+  .sub { color: var(--muted); max-width: 500px; margin: 0 auto; font-size: 0.98rem; font-weight: 600; }
+  .foto-main { width: 100%; max-width: 440px; border-radius: 18px; margin: 22px auto 8px; display: block; box-shadow: 0 14px 40px rgba(51,48,42,0.14); }
+  .fotos-mini { display: flex; gap: 10px; justify-content: center; }
+  .fotos-mini img { width: 72px; height: 72px; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
+
+  .prova { display: flex; justify-content: center; gap: 8px; align-items: center; margin-top: 14px; font-size: 0.85rem; color: var(--muted); font-weight: 700; flex-wrap: wrap; }
+  .prova b { color: #e8a53b; letter-spacing: 0.05em; }
+
+  .beneficios { padding: 26px 0 6px; }
+  .bene { display: flex; gap: 12px; margin-bottom: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 15px 16px; }
+  .bene span { font-size: 1.4rem; }
+  .bene p { font-size: 0.92rem; font-weight: 600; }
+  .bene p b { font-weight: 800; }
+
+  .depo { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; margin: 10px 0 26px; font-size: 0.92rem; font-weight: 600; font-style: italic; color: #55503f; }
+  .depo small { display: block; font-style: normal; color: var(--muted); margin-top: 8px; }
+
+  /* ===== CHECKOUT BOX ===== */
+  .oferta { background: var(--surface); border: 2px solid var(--accent); border-radius: 20px; padding: 26px 20px; margin: 10px 0 34px; box-shadow: 0 18px 50px rgba(232,133,59,0.15); }
+  .oferta h2 { text-align: center; font-size: 1.25rem; font-weight: 900; margin-bottom: 4px; }
+  .preco-linha { text-align: center; margin-bottom: 18px; }
+  .preco-de { color: var(--muted); text-decoration: line-through; font-weight: 700; }
+  .preco-por { font-size: 2.2rem; color: var(--green); font-weight: 900; }
+  .preco-obs { font-size: 0.8rem; color: var(--muted); font-weight: 700; }
+
+  .bump { display: flex; gap: 12px; align-items: flex-start; border: 2px dashed var(--accent); border-radius: 14px; padding: 14px; margin-bottom: 12px; cursor: pointer; background: #fff8ef; transition: all .15s; }
+  .bump:hover { background: #ffefdd; }
+  .bump.on { border-style: solid; background: #fff3e2; box-shadow: 0 4px 14px rgba(232,133,59,0.18); }
+  .bump input { width: 22px; height: 22px; accent-color: var(--accent); margin-top: 3px; flex-shrink: 0; cursor: pointer; }
+  .bump img { width: 62px; height: 62px; object-fit: cover; border-radius: 10px; flex-shrink: 0; }
+  .bump .bi b { font-weight: 800; font-size: 0.92rem; display: block; }
+  .bump .bi p { font-size: 0.8rem; color: var(--muted); font-weight: 600; }
+  .bump .bp { margin-left: auto; text-align: right; flex-shrink: 0; }
+  .bump .bp s { color: var(--muted); font-size: 0.75rem; display: block; }
+  .bump .bp b { color: var(--green); font-weight: 900; }
+  .bump-tag { display: inline-block; background: var(--accent); color: #fff; font-size: 0.62rem; font-weight: 900; letter-spacing: 0.06em; padding: 2px 8px; border-radius: 20px; text-transform: uppercase; margin-bottom: 4px; }
+
+  .total-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 4px 4px; font-weight: 800; }
+  .total-row b { font-size: 1.35rem; color: var(--green); }
+
+  .cta { display: block; width: 100%; background: var(--green); color: #fff; border: none; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.05rem; letter-spacing: 0.03em; padding: 17px; border-radius: 14px; cursor: pointer; transition: transform .12s, background .2s; box-shadow: 0 8px 26px rgba(62,156,92,0.35); margin-top: 8px; }
+  .cta:hover { background: #328a4e; transform: translateY(-2px); }
+  .cta-sub { text-align: center; font-size: 0.74rem; color: var(--muted); font-weight: 700; margin-top: 10px; }
+
+  .selos { display: flex; justify-content: center; gap: 22px; flex-wrap: wrap; text-align: center; padding: 4px 0 30px; }
+  .selo-i { font-size: 0.72rem; color: var(--muted); max-width: 110px; font-weight: 700; }
+  .selo-i span { display: block; font-size: 1.5rem; margin-bottom: 4px; }
+
+  .faq { padding-bottom: 40px; }
+  .faq h2 { text-align: center; font-weight: 900; font-size: 1.3rem; margin-bottom: 16px; }
+  .faq-item { border: 1px solid var(--line); border-radius: 12px; margin-bottom: 10px; background: var(--surface); }
+  .faq-item summary { padding: 14px 16px; cursor: pointer; font-weight: 800; font-size: 0.9rem; list-style: none; display: flex; justify-content: space-between; }
+  .faq-item summary::after { content: '+'; color: var(--accent); font-weight: 900; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item div { padding: 0 16px 14px; color: var(--muted); font-size: 0.86rem; font-weight: 600; }
+
+  footer { text-align: center; color: var(--muted); font-size: 0.72rem; padding: 20px 16px 34px; border-top: 1px solid var(--line); font-weight: 700; }
+
+  /* ===== MODAL (dados do cliente) ===== */
+  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(51,48,42,0.55); z-index: 1000; align-items: center; justify-content: center; padding: 16px; }
+  .modal-overlay.active { display: flex; }
+  .modal { background: #fff; border-radius: 18px; max-width: 520px; width: 100%; max-height: 92vh; overflow-y: auto; }
+  .modal-head { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px 14px; border-bottom: 1px solid var(--line); }
+  .modal-head h3 { font-weight: 900; font-size: 1.1rem; }
+  .close-m { background: none; border: none; font-size: 1.3rem; color: var(--muted); cursor: pointer; }
+  .resumo { background: #fff8ef; padding: 14px 24px; font-size: 0.86rem; font-weight: 700; border-bottom: 1px solid var(--line); }
+  .resumo div { display: flex; justify-content: space-between; padding: 2px 0; }
+  .resumo .rt { border-top: 1px dashed var(--line); margin-top: 6px; padding-top: 8px; font-weight: 900; color: var(--green); }
+  .modal-body { padding: 20px 24px 26px; }
+  .fg { margin-bottom: 14px; }
+  .fg label { display: block; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 5px; }
+  .fg input { width: 100%; border: 1.5px solid var(--line); border-radius: 10px; padding: 11px 13px; font-family: 'Nunito', sans-serif; font-size: 0.92rem; font-weight: 600; outline: none; }
+  .fg input:focus { border-color: var(--accent); }
+  .fr { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pays { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0 16px; }
+  .pay { border: 1.5px solid var(--line); border-radius: 10px; padding: 10px 6px; text-align: center; cursor: pointer; font-size: 0.72rem; font-weight: 800; }
+  .pay .pi { font-size: 1.2rem; }
+  .pay.active { border-color: var(--accent); background: #fff3e2; }
+  .loading { display: none; text-align: center; padding: 40px; }
+  .loading.active { display: block; }
+  .spinner { width: 38px; height: 38px; border: 3px solid rgba(232,133,59,0.25); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 14px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .result { display: none; padding: 28px 24px; text-align: center; }
+  .result.active { display: block; }
+  .result h4 { font-weight: 900; font-size: 1.2rem; margin: 8px 0 4px; }
+  .result p { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+  .pix-box { background: #f8f6f0; border: 1.5px solid var(--line); border-radius: 12px; padding: 16px; margin: 14px 0; }
+  .pix-box img { width: 170px; height: 170px; display: block; margin: 0 auto 12px; }
+  .pix-copy { display: flex; gap: 8px; }
+  .pix-copy input { flex: 1; border: 1px solid var(--line); border-radius: 8px; padding: 9px 10px; font-size: 0.72rem; font-family: monospace; }
+  .pix-copy button { background: var(--accent); border: none; color: #fff; font-weight: 800; border-radius: 8px; padding: 9px 14px; font-size: 0.72rem; cursor: pointer; font-family: 'Nunito', sans-serif; }
+  .link-btn { display: inline-block; background: var(--green); color: #fff; text-decoration: none; font-weight: 800; padding: 12px 26px; border-radius: 10px; margin-top: 12px; font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<div class="topbar">🐾 OFERTA DE LANÇAMENTO — 37% OFF + FRETE PARA TODO O BRASIL</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1>Seu sofá cheio de pelos?<br><span>Resolva em 30 segundos.</span></h1>
+    <p class="sub">O Rolo Removedor Mágico tira os pelos do seu pet do sofá, cama, roupa e carro — sem refil, sem fita adesiva, reutilizável para sempre.</p>
+    <img class="foto-main" src="https://http2.mlstatic.com/D_NQ_NP_2X_861779-MLA94466800037_102025-F.webp" alt="Rolo removedor de pelos pet em uso no sofá">
+    <div class="fotos-mini">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_911960-MLA94466473845_102025-F.webp" alt="Detalhe do rolo">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_2X_906869-MLA94466483687_102025-F.webp" alt="Reservatório de pelos">
+    </div>
+    <p class="prova"><b>★★★★½</b> 4.5 de 554 avaliações · +1.000 unidades vendidas</p>
+  </div>
+
+  <div class="beneficios">
+    <div class="bene"><span>🛋️</span><p><b>Funciona em tudo:</b> sofá, cama, cobertor, roupa, tapete e banco do carro.</p></div>
+    <div class="bene"><span>♻️</span><p><b>Nunca mais compre refil:</b> abre, joga os pelos no lixo e usa de novo. Para sempre.</p></div>
+    <div class="bene"><span>⚡</span><p><b>Mais rápido que aspirador:</b> dois ou três movimentos e o pelo está no reservatório.</p></div>
+    <div class="bene"><span>🐶🐱</span><p><b>Para todo tipo de pelo:</b> cachorro, gato, pelo curto ou longo.</p></div>
+  </div>
+
+  <div class="depo">
+    "Genteeee, super recomendo. Achei que não ia ser tão bom quanto o aspirador... prefiro usar esse removedor. Passei na cama, na toalha — tenho duas gatas e serviu muito pra mim! Podem comprar, funciona mesmo."
+    <small>★★★★★ — compradora verificada</small>
+  </div>
+
+  <!-- ============ OFERTA + BUMPS ============ -->
+  <div class="oferta" id="oferta">
+    <h2>🐾 Leve o seu hoje</h2>
+    <div class="preco-linha">
+      <span class="preco-de">de R$ 79,90</span><br>
+      <span class="preco-por">R$ 49,90</span><br>
+      <span class="preco-obs">ou em até 12x no cartão · PIX e boleto</span>
+    </div>
+
+    <label class="bump" id="bump1">
+      <input type="checkbox" onchange="atualizaTotal()">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_932579-MLA95500604510_102025-O.webp" alt="Luva tira pelos" onerror="this.style.display='none'">
+      <div class="bi">
+        <span class="bump-tag">Só nesta página</span>
+        <b>+ Luva Tira-Pelos Mágica</b>
+        <p>Escove e tire o pelo direto do seu pet — ele ainda ganha uma massagem.</p>
+      </div>
+      <div class="bp"><s>R$ 39,90</s><b>+R$ 24,90</b></div>
+    </label>
+
+    <label class="bump" id="bump2">
+      <input type="checkbox" onchange="atualizaTotal()">
+      <img src="https://http2.mlstatic.com/D_NQ_NP_977834-MLA107514027283_022026-O.webp" alt="Corta unha pet" onerror="this.style.display='none'">
+      <div class="bi">
+        <span class="bump-tag">Oferta única</span>
+        <b>+ Corta-Unha com Trava de Segurança</b>
+        <p>Unhas aparadas em casa, sem stress e sem pagar pet shop.</p>
+      </div>
+      <div class="bp"><s>R$ 34,90</s><b>+R$ 19,90</b></div>
+    </label>
+
+    <div class="total-row"><span>Total:</span><b id="totalTxt">R$ 49,90</b></div>
+    <button class="cta" onclick="abrirCheckout()">QUERO ACABAR COM OS PELOS →</button>
+    <p class="cta-sub">🔒 Pagamento 100% seguro via Asaas · Troca grátis em 30 dias</p>
+  </div>
+
+  <div class="selos">
+    <div class="selo-i"><span>🚚</span>Frete para todo o Brasil</div>
+    <div class="selo-i"><span>🔒</span>PIX, boleto e cartão</div>
+    <div class="selo-i"><span>↩️</span>Troca em 30 dias</div>
+    <div class="selo-i"><span>💬</span>Suporte humano</div>
+  </div>
+
+  <div class="faq">
+    <h2>Perguntas frequentes</h2>
+    <details class="faq-item"><summary>Como funciona o rolo?</summary><div>É só passar sobre o tecido: os pelos ficam presos no reservatório interno. Quando encher, você abre, joga fora e continua usando. Não usa pilha, refil nem fita.</div></details>
+    <details class="faq-item"><summary>Funciona com pelo de gato?</summary><div>Sim! Funciona com pelos de gato e cachorro, curtos ou longos, em qualquer tecido.</div></details>
+    <details class="faq-item"><summary>Quando chega?</summary><div>Enviamos com rastreio para todo o Brasil. O código de rastreamento chega no seu e-mail assim que o pedido é postado.</div></details>
+    <details class="faq-item"><summary>E se eu não gostar?</summary><div>Você tem 30 dias para trocar sem burocracia. Risco zero.</div></details>
+  </div>
+
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-head"><h3>Finalizar pedido 🐾</h3><button class="close-m" onclick="fecharCheckout()">✕</button></div>
+    <div class="resumo" id="resumo"></div>
+    <div class="modal-body" id="formBox">
+      <div class="fr">
+        <div class="fg"><label>Nome completo</label><input id="cNome" type="text" placeholder="Seu nome"></div>
+        <div class="fg"><label>CPF</label><input id="cCpf" type="text" placeholder="000.000.000-00" maxlength="14"></div>
+      </div>
+      <div class="fg"><label>E-mail</label><input id="cEmail" type="email" placeholder="seu@email.com"></div>
+      <div class="fg"><label>WhatsApp</label><input id="cFone" type="text" placeholder="(00) 00000-0000" maxlength="15"></div>
+      <div class="fr">
+        <div class="fg"><label>CEP</label><input id="cCep" type="text" placeholder="00000-000" maxlength="9"></div>
+        <div class="fg"><label>Cidade</label><input id="cCidade" type="text" placeholder="Sua cidade"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Rua/Avenida</label><input id="cRua" type="text" placeholder="Rua das Flores"></div>
+        <div class="fg"><label>Número</label><input id="cNum" type="text" placeholder="123"></div>
+      </div>
+      <div class="fr">
+        <div class="fg"><label>Complemento</label><input id="cComp" type="text" placeholder="Opcional"></div>
+        <div class="fg"><label>Estado (UF)</label><input id="cUf" type="text" placeholder="PA" maxlength="2"></div>
+      </div>
+      <label style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);">Pagamento</label>
+      <div class="pays">
+        <div class="pay active" data-m="pix" onclick="setPay(this)"><div class="pi">⚡</div>PIX</div>
+        <div class="pay" data-m="boleto" onclick="setPay(this)"><div class="pi">📄</div>Boleto</div>
+        <div class="pay" data-m="cartao" onclick="setPay(this)"><div class="pi">💳</div>Cartão</div>
+      </div>
+      <button class="cta" style="margin-top:0" onclick="enviar()">GERAR PAGAMENTO</button>
+      <p class="cta-sub">🔒 Processado pelo Asaas</p>
+    </div>
+    <div class="loading" id="loadBox"><div class="spinner"></div><p style="color:var(--muted);font-weight:700;">Gerando seu pagamento...</p></div>
+    <div class="result" id="resBox"></div>
+  </div>
+</div>
+
+<script>
+const PRECO_BASE = 49.90;
+const BUMPS = [
+  { el: 'bump1', nome: 'Luva Tira-Pelos', preco: 24.90 },
+  { el: 'bump2', nome: 'Corta-Unha Pet', preco: 19.90 }
+];
+function money(v) { return 'R$ ' + v.toFixed(2).replace('.', ','); }
+function calc() {
+  let total = PRECO_BASE, itens = ['Rolo Removedor de Pelos Mágico'];
+  BUMPS.forEach(b => {
+    const box = document.getElementById(b.el);
+    const on = box.querySelector('input').checked;
+    box.classList.toggle('on', on);
+    if (on) { total += b.preco; itens.push(b.nome); }
+  });
+  return { total, itens };
+}
+function atualizaTotal() {
+  document.getElementById('totalTxt').textContent = money(calc().total);
+}
+function abrirCheckout() {
+  const { total, itens } = calc();
+  document.getElementById('resumo').innerHTML =
+    `<div><span>🐾 Rolo Removedor Mágico</span><span>${money(PRECO_BASE)}</span></div>` +
+    BUMPS.filter(b => document.getElementById(b.el).querySelector('input').checked)
+      .map(b => `<div><span>+ ${b.nome}</span><span>${money(b.preco)}</span></div>`).join('') +
+    `<div class="rt"><span>Total</span><span>${money(total)}</span></div>`;
+  document.getElementById('formBox').style.display = 'block';
+  document.getElementById('loadBox').classList.remove('active');
+  document.getElementById('resBox').classList.remove('active');
+  document.getElementById('modal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function fecharCheckout() {
+  document.getElementById('modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('modal').addEventListener('click', function(e) { if (e.target === this) fecharCheckout(); });
+function setPay(el) {
+  document.querySelectorAll('.pay').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+}
+document.getElementById('cCpf').addEventListener('input', function() {
+  let v = this.value.replace(/\D/g, '');
+  if (v.length <= 11) v = v.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  this.value = v;
+});
+document.getElementById('cFone').addEventListener('input', function() {
+  let v = this.value.replace(/\D/g, '');
+  this.value = v.replace(/(\d{2})(\d)/, '($1) $2').replace(/(\d{5})(\d)/, '$1-$2');
+});
+
+async function enviar() {
+  const g = id => document.getElementById(id).value.trim();
+  const nome = g('cNome'), cpf = g('cCpf'), email = g('cEmail'), fone = g('cFone'),
+        cep = g('cCep'), cidade = g('cCidade'), rua = g('cRua'), num = g('cNum'),
+        comp = g('cComp'), uf = g('cUf').toUpperCase();
+  if (!nome || !email || !cpf || !cep || !rua || !num || !cidade || !uf) {
+    alert('Preencha todos os campos obrigatórios para receber seu pedido. 🐾'); return;
+  }
+  const { total, itens } = calc();
+  const metodo = document.querySelector('.pay.active')?.dataset.m || 'pix';
+  document.getElementById('formBox').style.display = 'none';
+  document.getElementById('loadBox').classList.add('active');
+  try {
+    const res = await fetch('/api/checkout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        customerName: nome, customerEmail: email, customerPhone: fone, customerCpf: cpf,
+        customerZipCode: cep, customerAddress: rua, customerNumber: num, customerComplement: comp,
+        customerCity: cidade, customerState: uf,
+        product: itens.join(' + '), color: null, size: null,
+        paymentMethod: metodo, value: total
+      })
+    });
+    const data = await res.json();
+    document.getElementById('loadBox').classList.remove('active');
+    const box = document.getElementById('resBox');
+    box.classList.add('active');
+    if (data.success) {
+      if (metodo === 'pix' && data.pixQrCode) {
+        box.innerHTML = `<div style="font-size:2.4rem">⚡</div><h4>PIX gerado!</h4>
+          <p>Escaneie o QR Code ou copie o código abaixo</p>
+          <div class="pix-box"><img src="data:image/png;base64,${data.pixQrCode}" alt="QR Code PIX">
+          <div class="pix-copy"><input id="pixC" value="${data.pixCopyPaste}" readonly><button onclick="navigator.clipboard.writeText(document.getElementById('pixC').value).then(()=>alert('Código copiado!'))">Copiar</button></div></div>
+          <p>Após o pagamento, a confirmação chega no seu e-mail. 🐾</p>`;
+      } else {
+        box.innerHTML = `<div style="font-size:2.4rem">✅</div><h4>Pedido gerado!</h4>
+          <p>Finalize o pagamento no botão abaixo.</p>
+          <a class="link-btn" href="${data.invoiceUrl || data.bankSlipUrl}" target="_blank">Ir para pagamento →</a>`;
+      }
+    } else {
+      box.innerHTML = `<div style="font-size:2.4rem">❌</div><h4>Ops, algo deu errado</h4>
+        <p>${data.error || 'Tente novamente.'}</p>
+        <button class="cta" style="margin-top:14px" onclick="document.getElementById('formBox').style.display='block';document.getElementById('resBox').classList.remove('active')">Tentar de novo</button>`;
+    }
+  } catch (e) {
+    document.getElementById('loadBox').classList.remove('active');
+    const box = document.getElementById('resBox');
+    box.classList.add('active');
+    box.innerHTML = `<div style="font-size:2.4rem">❌</div><h4>Erro de conexão</h4><p>Verifique sua internet e tente novamente.</p>`;
+  }
+}
+</script>
+<footer>© 2026 Grifestor7 Pet · Pagamentos processados pelo Asaas</footer>
+</body>
+</html>
