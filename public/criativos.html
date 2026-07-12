@@ -47,11 +47,12 @@ function badge(c, cx, cy, raio, top, mid, bot) {
   c.font = `700 ${raio * 0.22}px Arial`;
   c.textAlign = 'center';
   c.fillText(top, 0, -raio * 0.32);
+  // risco no "de R$"
   const w = c.measureText(top).width;
   c.strokeStyle = 'rgba(255,255,255,0.9)'; c.lineWidth = 3;
   c.beginPath(); c.moveTo(-w / 2 - 4, -raio * 0.39); c.lineTo(w / 2 + 4, -raio * 0.39); c.stroke();
   c.fillStyle = '#fff';
-  c.font = `900 ${raio * 0.42}px Arial`;
+  c.font = `900 ${raio * 0.36}px Arial`;
   c.fillText(mid, 0, raio * 0.1);
   c.font = `700 ${raio * 0.19}px Arial`;
   c.fillStyle = 'rgba(255,255,255,0.9)';
@@ -61,7 +62,9 @@ function badge(c, cx, cy, raio, top, mid, bot) {
 
 function desenhaFeed(img) {
   const c = document.getElementById('feed').getContext('2d');
+  // fundo creme
   c.fillStyle = '#fdf9f3'; c.fillRect(0, 0, 1080, 1080);
+  // headline
   c.fillStyle = '#33302a'; c.textAlign = 'center';
   c.font = '900 74px Arial';
   c.fillText('SEU SOFÁ CHEIO', 540, 110);
@@ -69,20 +72,24 @@ function desenhaFeed(img) {
   c.fillStyle = '#e8853b';
   c.font = '800 46px Arial';
   c.fillText('Resolva em 30 segundos ⏱', 540, 258);
+  // foto do produto
   const S = 610;
   c.save();
   roundRect(c, (1080 - S) / 2, 300, S, S, 28);
   c.clip();
   c.drawImage(img, (1080 - S) / 2, 300, S, S);
   c.restore();
-  badge(c, 895, 810, 150, 'de R$ 79,90', 'R$ 49,90', 'no PIX');
+  // selo de preço
+  badge(c, 865, 800, 148, 'de R$ 79,90', 'R$ 49,90', 'no PIX');
+  // barra inferior
   c.fillStyle = '#e8853b'; c.fillRect(0, 985, 1080, 95);
   c.fillStyle = '#fff';
-  c.font = '800 40px Arial';
-  c.fillText('🐾 FRETE PARA TODO O BRASIL  ·  TROCA EM 30 DIAS', 540, 1046);
+  c.font = '800 34px Arial';
+  c.fillText('🐾 FRETE PARA TODO O BRASIL · TROCA EM 30 DIAS', 540, 1044);
+  // prova social
   c.fillStyle = '#8a8478';
   c.font = '700 30px Arial';
-  c.fillText('★★★★★  4.5 · +1.000 vendidos', 300, 950);
+  c.fillText('★★★★★  4.5 · +1.000 vendidos', 330, 955);
 }
 
 function desenhaStory(img) {
@@ -105,10 +112,11 @@ function desenhaStory(img) {
   c.clip();
   c.drawImage(img, (1080 - S) / 2, 520, S, S);
   c.restore();
-  badge(c, 860, 1300, 175, 'de R$ 79,90', 'R$ 49,90', 'no PIX');
+  badge(c, 830, 1290, 170, 'de R$ 79,90', 'R$ 49,90', 'no PIX');
   c.fillStyle = '#8a8478';
   c.font = '700 36px Arial';
   c.fillText('★★★★★ 4.5 · +1.000 unidades vendidas', 540, 1490);
+  // CTA
   c.fillStyle = '#3e9c5c';
   roundRect(c, 190, 1560, 700, 110, 55); c.fill();
   c.fillStyle = '#fff';
