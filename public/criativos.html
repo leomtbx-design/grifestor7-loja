@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criativos — Rolo Removedor Pet</title>
+<style>
+  body { background: #22201c; color: #eee; font-family: system-ui, sans-serif; padding: 24px; text-align: center; }
+  h1 { font-size: 1.1rem; margin-bottom: 4px; }
+  p { color: #999; font-size: 0.8rem; margin-bottom: 20px; }
+  .row { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; align-items: flex-start; }
+  .card { background: #2d2a25; border-radius: 12px; padding: 14px; }
+  canvas { max-width: 340px; width: 100%; height: auto; border-radius: 8px; display: block; }
+  button { margin-top: 10px; background: #3e9c5c; color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-weight: 700; cursor: pointer; font-size: 0.85rem; }
+  button:hover { background: #328a4e; }
+</style>
+</head>
+<body>
+<h1>Criativos — Rolo Removedor de Pelos 🐾</h1>
+<p>Gerados automaticamente. Clique para baixar em alta resolução (JPG).</p>
+<div class="row">
+  <div class="card"><canvas id="feed" width="1080" height="1080"></canvas><br><button onclick="baixar('feed','criativo-feed-1080.jpg')">⬇ Baixar Feed 1080×1080</button></div>
+  <div class="card"><canvas id="story" width="1080" height="1920"></canvas><br><button onclick="baixar('story','criativo-story-1080x1920.jpg')">⬇ Baixar Story 1080×1920</button></div>
+</div>
+
+<script>
+const IMG_MAIN = 'https://http2.mlstatic.com/D_NQ_NP_2X_861779-MLA94466800037_102025-F.webp';
+
+function roundRect(c, x, y, w, h, r) {
+  c.beginPath();
+  c.moveTo(x + r, y);
+  c.arcTo(x + w, y, x + w, y + h, r);
+  c.arcTo(x + w, y + h, x, y + h, r);
+  c.arcTo(x, y + h, x, y, r);
+  c.arcTo(x, y, x + w, y, r);
+  c.closePath();
+}
+
+function badge(c, cx, cy, raio, top, mid, bot) {
+  c.save();
+  c.translate(cx, cy);
+  c.rotate(-0.09);
+  c.beginPath(); c.arc(0, 0, raio, 0, 7);
+  c.fillStyle = '#3e9c5c'; c.fill();
+  c.lineWidth = 8; c.strokeStyle = '#fff'; c.stroke();
+  c.fillStyle = 'rgba(255,255,255,0.85)';
+  c.font = `700 ${raio * 0.22}px Arial`;
+  c.textAlign = 'center';
+  c.fillText(top, 0, -raio * 0.32);
+  const w = c.measureText(top).width;
+  c.strokeStyle = 'rgba(255,255,255,0.9)'; c.lineWidth = 3;
+  c.beginPath(); c.moveTo(-w / 2 - 4, -raio * 0.39); c.lineTo(w / 2 + 4, -raio * 0.39); c.stroke();
+  c.fillStyle = '#fff';
+  c.font = `900 ${raio * 0.42}px Arial`;
+  c.fillText(mid, 0, raio * 0.1);
+  c.font = `700 ${raio * 0.19}px Arial`;
+  c.fillStyle = 'rgba(255,255,255,0.9)';
+  c.fillText(bot, 0, raio * 0.42);
+  c.restore();
+}
+
+function desenhaFeed(img) {
+  const c = document.getElementById('feed').getContext('2d');
+  c.fillStyle = '#fdf9f3'; c.fillRect(0, 0, 1080, 1080);
+  c.fillStyle = '#33302a'; c.textAlign = 'center';
+  c.font = '900 74px Arial';
+  c.fillText('SEU SOFÁ CHEIO', 540, 110);
+  c.fillText('DE PELOS?', 540, 192);
+  c.fillStyle = '#e8853b';
+  c.font = '800 46px Arial';
+  c.fillText('Resolva em 30 segundos ⏱', 540, 258);
+  const S = 610;
+  c.save();
+  roundRect(c, (1080 - S) / 2, 300, S, S, 28);
+  c.clip();
+  c.drawImage(img, (1080 - S) / 2, 300, S, S);
+  c.restore();
+  badge(c, 895, 810, 150, 'de R$ 79,90', 'R$ 49,90', 'no PIX');
+  c.fillStyle = '#e8853b'; c.fillRect(0, 985, 1080, 95);
+  c.fillStyle = '#fff';
+  c.font = '800 40px Arial';
+  c.fillText('🐾 FRETE PARA TODO O BRASIL  ·  TROCA EM 30 DIAS', 540, 1046);
+  c.fillStyle = '#8a8478';
+  c.font = '700 30px Arial';
+  c.fillText('★★★★★  4.5 · +1.000 vendidos', 300, 950);
+}
+
+function desenhaStory(img) {
+  const c = document.getElementById('story').getContext('2d');
+  c.fillStyle = '#fdf9f3'; c.fillRect(0, 0, 1080, 1920);
+  c.fillStyle = '#e8853b'; c.fillRect(0, 0, 1080, 130);
+  c.fillStyle = '#fff'; c.textAlign = 'center';
+  c.font = '900 44px Arial';
+  c.fillText('🐾 OFERTA DE LANÇAMENTO — 37% OFF', 540, 82);
+  c.fillStyle = '#33302a';
+  c.font = '900 86px Arial';
+  c.fillText('SEU SOFÁ CHEIO', 540, 280);
+  c.fillText('DE PELOS?', 540, 375);
+  c.fillStyle = '#e8853b';
+  c.font = '800 52px Arial';
+  c.fillText('Resolva em 30 segundos', 540, 455);
+  const S = 780;
+  c.save();
+  roundRect(c, (1080 - S) / 2, 520, S, S, 34);
+  c.clip();
+  c.drawImage(img, (1080 - S) / 2, 520, S, S);
+  c.restore();
+  badge(c, 860, 1300, 175, 'de R$ 79,90', 'R$ 49,90', 'no PIX');
+  c.fillStyle = '#8a8478';
+  c.font = '700 36px Arial';
+  c.fillText('★★★★★ 4.5 · +1.000 unidades vendidas', 540, 1490);
+  c.fillStyle = '#3e9c5c';
+  roundRect(c, 190, 1560, 700, 110, 55); c.fill();
+  c.fillStyle = '#fff';
+  c.font = '900 46px Arial';
+  c.fillText('ARRASTA PRA CIMA ↑', 540, 1632);
+  c.fillStyle = '#33302a';
+  c.font = '800 38px Arial';
+  c.fillText('🚚 Frete para todo o Brasil · PIX, boleto e cartão', 540, 1790);
+}
+
+function baixar(id, nome) {
+  const cv = document.getElementById(id);
+  cv.toBlob(b => {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(b);
+    a.download = nome;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+  }, 'image/jpeg', 0.92);
+}
+
+const img = new Image();
+img.crossOrigin = 'anonymous';
+img.onload = () => { desenhaFeed(img); desenhaStory(img); };
+img.onerror = () => document.body.insertAdjacentHTML('beforeend', '<p style="color:#e66">Erro ao carregar a foto do produto.</p>');
+img.src = IMG_MAIN;
+</script>
+</body>
+</html>
