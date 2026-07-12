@@ -109,6 +109,16 @@
   .pix-copy button { background: var(--accent); border: none; color: #fff; font-weight: 800; border-radius: 8px; padding: 9px 14px; font-size: 0.72rem; cursor: pointer; font-family: 'Nunito', sans-serif; }
   .link-btn { display: inline-block; background: var(--green); color: #fff; text-decoration: none; font-weight: 800; padding: 12px 26px; border-radius: 10px; margin-top: 12px; font-size: 0.9rem; }
 </style>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1727817218434343');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {content_name: 'Rolo Removedor de Pelos', value: 49.90, currency: 'BRL'});
+</script>
 </head>
 <body>
 
@@ -262,6 +272,7 @@ function abrirCheckout() {
   document.getElementById('resBox').classList.remove('active');
   document.getElementById('modal').classList.add('active');
   document.body.style.overflow = 'hidden';
+  if (window.fbq) fbq('track', 'InitiateCheckout', {value: total, currency: 'BRL'});
 }
 function fecharCheckout() {
   document.getElementById('modal').classList.remove('active');
@@ -311,6 +322,7 @@ async function enviar() {
     const box = document.getElementById('resBox');
     box.classList.add('active');
     if (data.success) {
+      if (window.fbq) fbq('track', 'Purchase', {value: total, currency: 'BRL', content_name: itens.join(' + ')});
       if (metodo === 'pix' && data.pixQrCode) {
         box.innerHTML = `<div style="font-size:2.4rem">⚡</div><h4>PIX gerado!</h4>
           <p>Escaneie o QR Code ou copie o código abaixo</p>
